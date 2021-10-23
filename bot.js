@@ -1,6 +1,9 @@
 /* eslint-disable max-len */
 /* eslint-disable no-tabs */
 
+// Console Settings
+const logger = require('node-color-log');
+
 // Setting Configuration
 const dotenv = require('dotenv');
 dotenv.config();
@@ -45,7 +48,7 @@ client.on('interactionCreate', async (interaction) => {
 		await command.execute(interaction);
 	}
 	catch (error) {
-		console.error(error);
+		logger.warn(error);
 		await interaction.reply({ content: '觸發失敗!', ephemeral: true });
 	}
 });
